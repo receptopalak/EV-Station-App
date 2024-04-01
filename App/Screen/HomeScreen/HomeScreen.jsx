@@ -17,7 +17,7 @@ export default function HomeScreen() {
 
   const GetNearByPlaces = () => {
     const data = {
-      includedTypes: ["electric_vehicle_charging_station"],
+      includedTypes: ["restaurant"],
       maxResultCount: 10,
       locationRestriction: {
         circle: {
@@ -25,13 +25,13 @@ export default function HomeScreen() {
             latitude: location?.latitude,
             longitude: location?.longitude,
           },
-          radius: 5000.0,
+          radius: 500.0,
         },
       },
     };
 
     GlobalApi.NewNearByPlace(data).then((resp) => {
-      console.log(resp.data);
+   
       setPlaceList(resp.data?.places);
     });
   };
@@ -44,6 +44,7 @@ export default function HomeScreen() {
       </View>
       <AppMapView />
       <View style={styles.placeListContainer}>
+        <Text>{placeList}</Text>
         {placeList && <PlacesListView placeList={placeList} />}
       </View>
     </View>
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
   placeListContainer: {
     position: "absolute",
     bottom: 0,
-    zIndex: 10,
+    zIndex: 15,
     width: "100%",
   },
 });
