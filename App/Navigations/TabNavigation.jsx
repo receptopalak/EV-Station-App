@@ -16,7 +16,9 @@ export default function TabNavigation() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarHideOnKeyboard: true,
       }}
+
     >
       <Tab.Screen
         name="home"
@@ -29,22 +31,28 @@ export default function TabNavigation() {
           tabBarActiveTintColor: Colors.ACTIVE,
         }}
       />
-      <Tab.Screen name="favorite" component={FavoriteScreen} 
-          options={{
-            tabBarLabel: "Favorite",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="heart" size={size} color={color} />
-            ),
-            tabBarActiveTintColor: Colors.ACTIVE,
-          }} />
-      <Tab.Screen name="profile" component={ProfileScreen} 
-          options={{
-            tabBarLabel: "Profile",
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="person-circle-sharp" size={size} color={color} />
-            ),
-            tabBarActiveTintColor: Colors.ACTIVE,
-          }}/>
+      <Tab.Screen
+        name="favorite"
+        component={FavoriteScreen}
+        options={{
+          tabBarLabel: "Favorite",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="heart" size={size} color={color} />
+          ),
+          tabBarActiveTintColor: Colors.ACTIVE,
+        }}
+      />
+      <Tab.Screen
+        name="profile"
+        component={ProfileScreen}
+        options={{
+          tabBarLabel: "Profile",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person-circle-sharp" size={size} color={color} />
+          ),
+          tabBarActiveTintColor: Colors.ACTIVE,
+        }}
+      />
     </Tab.Navigator>
   );
 }
